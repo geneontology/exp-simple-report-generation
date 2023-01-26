@@ -172,4 +172,6 @@ if __name__ == "__main__":
         outfile = args.output + '/' + t.replace(':','_')+ '.tsv'
         LOG.info('output to file: ' + outfile)
         with open(outfile, 'w+') as fhandle:
+            ## Print out header line:
+            fhandle.write("\t".join(fields))
             fhandle.write(get_term_annotation_data(args.field, t))
