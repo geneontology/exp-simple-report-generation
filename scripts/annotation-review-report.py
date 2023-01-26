@@ -54,11 +54,12 @@ def collect_issues(issues, event_type: str, printed_ids: set):
     for issue in issues:
         print(issue)
         if issue['state'] == 'open':
-            has_label_p = False
-            if len(issue['labels']) > 0 :
-                for label in issue['labels']:
-                    if label['name'] == args.label:
-                        has_label_p = True
+            has_label_p = True
+            #has_label_p = False
+            # if len(issue['labels']) > 0 :
+            #     for label in issue['labels']:
+            #         if label['name'] == args.label:
+            #             has_label_p = True
             if has_label_p and re.match("GO:[0-9]+", issue['body']):
                 matches = re.findall("GO:[0-9]+", issue['body'])
                 for m in matches:
