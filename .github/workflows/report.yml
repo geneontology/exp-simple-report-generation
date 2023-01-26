@@ -1,0 +1,15 @@
+on:
+  issues:
+    types: [opened] # change to "locked"?
+
+jobs:
+
+  my-tag-issue:
+    runs-on: ubuntu-latest
+    name: Add issue comment
+    #if: ${{ !github.event.issue.pull_request }}
+    steps:
+      - run: |
+          echo A comment on issue $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}
