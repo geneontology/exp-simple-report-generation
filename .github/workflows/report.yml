@@ -20,4 +20,11 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: Run script
         #working-directory: ./
-        run: python3 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --label REPORTY --output ./ --verbose
+        run: mkdir -p reports/$NUMBER && python3 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --label REPORTY --output .reports/$NUMBER --verbose
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        name: Commit reports back to main
+        with:
+          commit_message: Auto-refreshing reports
+          commit_user_email: sjcarbon@lbl.gov
+          # Please do the dirty check, don't skip
+          skip_dirty_check: false
