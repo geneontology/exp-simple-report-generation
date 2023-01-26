@@ -10,7 +10,7 @@ As it stands now (and this is an early experimental mess) what we have is:
 * multiple workflows are triggered
 * if a workflow matches the label on the ticket, it continues (otherwise skipped)
 * a matching workflow
-  * greps out GO terms
+  * greps out GO terms from the issue _body_.
   * makes annotation TSVs for the matched terms
   * puts them into a reports/ directory for the opened issue number
   * commits the reports back into `main`
