@@ -5,9 +5,10 @@ on:
 jobs:
 
   my-tag-issue:
+    if: contains(github.event.issue.labels.*.name, 'direct_ann_to_list_of_terms')
+    #if: ${{ github.event.issue.name == 'REPORTY' }}
     runs-on: ubuntu-22.04
     name: Add issue comment
-    #if: ${{ github.event.issue.name == 'REPORTY' }}
     steps:
       - name: Proof of env
         env:
