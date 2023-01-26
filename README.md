@@ -28,10 +28,11 @@ closure for the given GO terms.
 
 ## Things to ponder
 
-- all sorts of fun trigger and actions can be though of here
+- all sorts of fun triggers and actions can be thought of here
 - cleaning/archiving could be ticket closing
 - maybe use gist API (pass secret)
   - allow for (easier-to-access?)raw TSVs
   - could append link comments to ticket once produced
 - act on locks instead of open
 - grebe
+- more structured runner / delagation
