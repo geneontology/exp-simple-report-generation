@@ -174,4 +174,5 @@ if __name__ == "__main__":
         with open(outfile, 'w+') as fhandle:
             ## Print out header line:
             fhandle.write("\t".join(rfields))
+            fhandle.write("\n")
             fhandle.write(get_term_annotation_data(args.field, t))
