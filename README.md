@@ -15,6 +15,17 @@ As it stands now (and this is an early experimental mess) what we have is:
   * puts them into a reports/ directory for the opened issue number
   * commits the reports back into `main`
 
+## Current reports
+
+### direct\_ann\_to\_list\_of\_terms
+
+A set of TSVs of the annotations directly annotated the given GO terms.
+
+### reg\_ann\_to\_list\_of\_terms
+
+A set of TSVs of the direct and indirect annotations over the regulates
+closure for the given GO terms.
+
 ## Things to ponder
 
 - all sorts of fun trigger and actions can be though of here
