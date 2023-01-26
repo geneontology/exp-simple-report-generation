@@ -38,3 +38,4 @@ closure for the given GO terms.
 - remote trigger to bigger machines
 - grebe
 - more structured runner / delagation
+- editing / deleting output with the GH "code" editors; curator workflow control
