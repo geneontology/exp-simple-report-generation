@@ -18,3 +18,4 @@ Things to ponder:
 - maybe use gist API (pass secret)
   - allow for (easier-to-access?)raw TSVs
   - could append link comments to ticket once produced
+- act on locks instead of open
