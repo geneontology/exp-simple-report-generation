@@ -1,9 +1,9 @@
 ####
 #### Invocation examples:
 ####
-#### Dump GAF-like direct annotation TSVs into /tmp, scanning geneontology/exp-simple-report-generation titles for the last seven days with the label "REPORTY":
+#### Dump GAF-like direct annotation TSVs into /tmp, scanning geneontology/simple-report-system titles for the last seven days with the label "direct_ann_to_list_of_terms":
 ####
-####   python3.6 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --number 6 --label REPORTY --output /tmp --verbose
+####   python3.6 ./scripts/annotation-review-report.py geneontology/simple-report-system 7 --number 6 --field annotation_class --label direct_ann_to_list_of_terms --output /tmp --verbose
 ####
 
 import logging
@@ -15,6 +15,10 @@ import datetime
 import argparse
 from pytz import timezone
 
+###
+### Global preamble.
+###
+
 ## Logger basic setup w/killer error.
 logging.basicConfig(level=logging.INFO)
 LOG = logging.getLogger('annotation-review-report')
@@ -24,19 +28,69 @@ def die_screaming(instr):
     LOG.error(instr)
     sys.exit(1)
 
+## Get arge sorted.
 parser = argparse.ArgumentParser()
 parser.add_argument('repo_name')
 parser.add_argument('duration_in_days')
 parser.add_argument('-t', '--todays_date', help="Override the date to start 'looking back' from. Date must be in ISO format e.g. '2022-08-16'")
 parser.add_argument('-n', '--number',  help='GH issue to filter for')
 parser.add_argument('-l', '--label',  help='GH label to filter for')
+parser.add_argument('-f', '--field',  help='The filter query to run (e.g. "annotation_class" or "regulates_closure"')
 parser.add_argument('-o', '--output',  help='Output directory')
 parser.add_argument('-v', '--verbose', action='store_true', help='More verbose output')
 
+args = parser.parse_args()
+
+## Verbose messages or not.
+if args.verbose:
+    LOG.setLevel(logging.INFO)
+LOG.info('Verbose: on')
+
+if not args.output:
+    die_screaming('need an output directory')
+LOG.info('Will output to: ' + args.output)
+
+if not args.number:
+    die_screaming('need an issue number')
+LOG.info('Will filter for issue: ' + args.number)
+
+if not args.label:
+    die_screaming('need an issue label')
+LOG.info('Will filter for issue label: ' + args.label)
+
+if not args.field:
+    die_screaming('need a filter query')
+LOG.info('Will filter for field: ' + args.field)
+
+## Globals. They were here before I got here--don't judge.
 collected_issues = []
 new_printed_count = 0
 updated_printed_count = 0
 
+## Return fields.
+rfields = [
+           'source',
+           'bioentity_internal_id',
+           'bioentity_label',
+           'qualifier',
+           'annotation_class',
+           'reference',
+           'evidence_type',
+           'evidence_with',
+           'aspect',
+           'bioentity_name',
+           'synonym',
+           'type',
+           'taxon',
+           'date',
+           'assigned_by',
+           'annotation_extension_class',
+           'bioentity_isoform'
+        ]
+
+###
+### Helpers.
+###
 
 ## Append to global variable, including print information.
 def collect_issues(issues, number: str, event_type: str, printed_ids: set):
@@ -68,8 +122,8 @@ def get_issues(repo: str, event_type: str, start_date: str):
         raise Exception("HTTP error status code: {} for url: {}".format(resp.status_code, url))
 
 ## Get Annotation TSV from GOlr.
-def get_term_annotation_data(term: str):
-    url = "http://golr-aux.geneontology.io/solr/select?defType=edismax&qt=standard&indent=on&wt=csv&rows=100000&start=0&fl=source,bioentity_internal_id,bioentity_label,qualifier,annotation_class,reference,evidence_type,evidence_with,aspect,bioentity_name,synonym,type,taxon,date,assigned_by,annotation_extension_class,bioentity_isoform&facet=true&facet.mincount=1&facet.sort=count&json.nl=arrarr&facet.limit=25&hl=true&hl.simple.pre=%3Cem%20class=%22hilite%22%3E&hl.snippets=1000&csv.encapsulator=&csv.separator=%09&csv.header=false&csv.mv.separator=%7C&fq=annotation_class:%22{}%22&fq=document_category:%22annotation%22&q=*:*".format(term)
+def get_term_annotation_data(fq: str, term: str):
+    url = "http://golr-aux.geneontology.io/solr/select?defType=edismax&qt=standard&indent=on&wt=csv&rows=100000&start=0&fl={}&facet=true&facet.mincount=1&facet.sort=count&json.nl=arrarr&facet.limit=25&hl=true&hl.simple.pre=%3Cem%20class=%22hilite%22%3E&hl.snippets=1000&csv.encapsulator=&csv.separator=%09&csv.header=false&csv.mv.separator=%7C&fq={}:%22{}%22&fq=document_category:%22annotation%22&q=*:*".format(','.join(rfields), fq, term)
     resp = requests.get(url)
     if resp.status_code == 200:
         resp_tsv = resp.text
@@ -77,27 +131,12 @@ def get_term_annotation_data(term: str):
     else:
         raise Exception("HTTP error status code: {} for url: {}".format(resp.status_code, url))
 
+###
+### Main.
+###
+
 ## Start.
 if __name__ == "__main__":
-
-    args = parser.parse_args()
-
-    ## Verbose messages or not.
-    if args.verbose:
-        LOG.setLevel(logging.INFO)
-        LOG.info('Verbose: on')
-
-    if not args.output:
-        die_screaming('need an output directory')
-    LOG.info('Will output to: ' + args.output)
-
-    if not args.number:
-        die_screaming('need an issue number')
-    LOG.info('Will filter for issue: ' + args.number)
-
-    if not args.label:
-        die_screaming('need an issue label')
-    LOG.info('Will filter for issue label: ' + args.label)
 
     ## Get date/time for GH interactions/filtering.
     today_time = datetime.datetime.now(tz=timezone('US/Pacific'))
@@ -136,4 +175,4 @@ if __name__ == "__main__":
         outfile = args.output + '/' + t.replace(':','_')+ '.tsv'
         LOG.info('output to file: ' + outfile)
         with open(outfile, 'w+') as fhandle:
-            fhandle.write(get_term_annotation_data(t))
+            fhandle.write(get_term_annotation_data(args.field, t))

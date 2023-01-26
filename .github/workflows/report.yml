@@ -7,7 +7,6 @@ jobs:
   my-tag-issue:
     runs-on: ubuntu-22.04
     name: Add issue comment
-    #if: ${{ !github.event.issue.pull_request }}
     #if: ${{ github.event.issue.name == 'REPORTY' }}
     steps:
       - name: Proof of env
@@ -22,7 +21,7 @@ jobs:
       - name: Run script
         env:
           NUMBER: ${{ github.event.issue.number }}
-        run: mkdir -p reports/$NUMBER && python3 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --number $NUMBER --label REPORTY --output ./reports/$NUMBER --verbose
+        run: mkdir -p reports/$NUMBER && python3 ./scripts/annotation-review-report.py geneontology/simple-report-system 7 --number $NUMBER --label direct_ann_to_list_of_terms --field annotation_class --output ./reports/$NUMBER --verbose
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit reports back to main
         with:
