@@ -9,7 +9,15 @@ jobs:
     name: Add issue comment
     #if: ${{ !github.event.issue.pull_request }}
     steps:
-      - run: |
-          echo A comment on issue $NUMBER
+      - name: Proof of env
         env:
           NUMBER: ${{ github.event.issue.number }}
+        run: |
+          echo A comment on issue $NUMBER
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Run script
+        #working-directory: ./
+        run: python3 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --label REPORTY --output ./ --verbose
