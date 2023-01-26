@@ -21,7 +21,7 @@ jobs:
       - name: Run script
         env:
           NUMBER: ${{ github.event.issue.number }}
-        run: mkdir -p reports/$NUMBER && python3 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --label REPORTY --output ./reports/$NUMBER --verbose
+        run: mkdir -p reports/$NUMBER && python3 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --issue $NUMBER --label REPORTY --output ./reports/$NUMBER --verbose
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit reports back to main
         with:

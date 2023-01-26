@@ -3,7 +3,7 @@
 ####
 #### Dump GAF-like direct annotation TSVs into /tmp, scanning geneontology/exp-simple-report-generation titles for the last seven days with the label "REPORTY":
 ####
-####   python3.6 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --label REPORTY --output /tmp --verbose
+####   python3.6 ./scripts/annotation-review-report.py geneontology/exp-simple-report-generation 7 --issue 6 --label REPORTY --output /tmp --verbose
 ####
 
 import logging
@@ -28,6 +28,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('repo_name')
 parser.add_argument('duration_in_days')
 parser.add_argument('-t', '--todays_date', help="Override the date to start 'looking back' from. Date must be in ISO format e.g. '2022-08-16'")
+parser.add_argument('-i', '--issue',  help='GH issue to filter for')
 parser.add_argument('-l', '--label',  help='GH label to filter for')
 parser.add_argument('-o', '--output',  help='Output directory')
 parser.add_argument('-v', '--verbose', action='store_true', help='More verbose output')
@@ -65,12 +66,16 @@ def collect_issues(issues, event_type: str, printed_ids: set):
                     collected_issues.append(m)
 
 ## Pull issues from GH.
-def get_issues(repo: str, event_type: str, start_date: str):
-    url = "https://api.github.com/search/issues?q=repo:{}+{}:=>{}+is:issue&type=Issues&per_page=100".format(repo, event_type, start_date)
+def get_issues(issue: str, repo: str, event_type: str, start_date: str):
+    #url = "https://api.github.com/search/issues?q=repo:{}+{}:=>{}+is:issue&type=Issues&per_page=100".format(repo, event_type, start_date)
+    url = "https://api.github.com/repos/{}/issues/{}".format(repo, issue)
+    print(url)
     resp = requests.get(url)
     if resp.status_code == 200:
         resp_objs = json.loads(resp.content)
-        issues = resp_objs.get("items", [])
+        print(resp_objs)
+        #issues = resp_objs.get("items", [])
+        issues = [resp_objs]
         return issues
     else:
         raise Exception("HTTP error status code: {} for url: {}".format(resp.status_code, url))
@@ -114,7 +119,7 @@ if __name__ == "__main__":
     yesterday = yesterday_time.strftime("%Y-%m-%d")
 
     ## Pull in created and updated issues.
-    new_issues = get_issues(args.repo_name, "created", yesterday_time_str)
+    new_issues = get_issues(args.issue, args.repo_name, "created", yesterday_time_str)
     #updated_issues = get_issues(args.repo_name, "updated", yesterday_time_str)
 
     ## Filter and sort the items in global collected_issues([]).
