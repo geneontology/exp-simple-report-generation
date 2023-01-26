@@ -5,7 +5,7 @@ on:
 jobs:
 
   my-tag-issue:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Add issue comment
     #if: ${{ !github.event.issue.pull_request }}
     steps:
