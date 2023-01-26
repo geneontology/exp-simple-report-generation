@@ -173,5 +173,5 @@ if __name__ == "__main__":
         LOG.info('output to file: ' + outfile)
         with open(outfile, 'w+') as fhandle:
             ## Print out header line:
-            fhandle.write("\t".join(fields))
+            fhandle.write("\t".join(rfields))
             fhandle.write(get_term_annotation_data(args.field, t))
