@@ -69,23 +69,20 @@ updated_printed_count = 0
 
 ## Return fields.
 rfields = [
-           'source',
-           'bioentity_internal_id',
+           'assigned_by',
+           'bioentity',
            'bioentity_label',
+           'reference',
            'qualifier',
            'annotation_class',
-           'reference',
+           'annotation_class_label',
            'evidence_type',
            'evidence_with',
-           'aspect',
-           'bioentity_name',
-           'synonym',
-           'type',
-           'taxon',
-           'date',
-           'assigned_by',
-           'annotation_extension_class',
            'bioentity_isoform'
+           'panther_family',
+           'date',
+           'annotation_extension_class',
+           'taxon'
         ]
 
 ###
