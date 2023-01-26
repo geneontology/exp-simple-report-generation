@@ -34,5 +34,7 @@ closure for the given GO terms.
   - allow for (easier-to-access?)raw TSVs
   - could append link comments to ticket once produced
 - act on locks instead of open
+- other APIs, not just cheaping out on GOlr
+- remote trigger to bigger machines
 - grebe
 - more structured runner / delagation
