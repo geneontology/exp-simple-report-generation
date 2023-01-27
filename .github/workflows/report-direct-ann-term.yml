@@ -25,7 +25,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         name: Commit reports back to main
         with:
-          commit_message: Auto-refreshing reports
+          commit_message: Reports at https://github.com/geneontology/simple-report-system/tree/main/reports/$NUMBER for issue https://github.com/geneontology/simple-report-system/issues/$NUMBER
           commit_user_email: sjcarbon@lbl.gov
           # Please do the dirty check, don't skip
           skip_dirty_check: false
