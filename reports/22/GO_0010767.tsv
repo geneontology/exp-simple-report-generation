@@ -1,0 +1,3 @@
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoformpanther_family	date	annotation_extension_class	taxon
+TAIR	AGI_LocusCode:AT1G47870	ATE2F2	TAIR:Publication:501782038|PMID:30427087		GO:0010767	regulation of transcription from RNA polymerase II promoter in response to UV-induced DNA damage	IMP			20181205		NCBITaxon:3702
+UniProt	MGI:MGI:1202065	Chek1	MGI:MGI:5294291|PMID:18243098		GO:0010767	regulation of transcription from RNA polymerase II promoter in response to UV-induced DNA damage	IMP			20110919		NCBITaxon:10090
