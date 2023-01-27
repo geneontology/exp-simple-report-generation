@@ -28,7 +28,7 @@ jobs:
           NUMBER: ${{ github.event.issue.number }}
         with:
           commit_message: |
-            Reports at https://github.com/geneontology/simple-report-system/tree/main/reports/$NUMBER for issue https://github.com/geneontology/simple-report-system/issues/$NUMBER
+            Reports at https://github.com/geneontology/simple-report-system/tree/main/reports/${{ github.event.issue.number }} for issue https://github.com/geneontology/simple-report-system/issues/${{ github.event.issue.number }}
           commit_user_email: sjcarbon@lbl.gov
           # Please do the dirty check, don't skip
           skip_dirty_check: false
