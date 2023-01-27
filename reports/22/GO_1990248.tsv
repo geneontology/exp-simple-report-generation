@@ -1,5 +1,0 @@
-assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoformpanther_family	date	annotation_extension_class	taxon
-FlyBase	FB:FBgn0039044	p53	FB:FBrf0223434|PMID:24265704		GO:1990248	regulation of transcription from RNA polymerase II promoter in response to DNA damage	IMP			20140327		NCBITaxon:7227
-FlyBase	FB:FBgn0039044	p53	FB:FBrf0229995|PMID:25882045		GO:1990248	regulation of transcription from RNA polymerase II promoter in response to DNA damage	IMP			20160211		NCBITaxon:7227
-FlyBase	FB:FBgn0260749	Utx	FB:FBrf0223434|PMID:24265704		GO:1990248	regulation of transcription from RNA polymerase II promoter in response to DNA damage	IMP			20140327		NCBITaxon:7227
-ARUK-UCL	UniProtKB:P04637	TP53	PMID:30089260		GO:1990248	regulation of transcription from RNA polymerase II promoter in response to DNA damage	IDA			20190625	UniProtKB:Q07954	NCBITaxon:9606
