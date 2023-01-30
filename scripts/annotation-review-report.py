@@ -104,6 +104,9 @@ def collect_issues(issues, number: str, event_type: str, printed_ids: set):
                 matches = re.findall("GO:[0-9]+", issue['body'])
                 for m in matches:
                     collected_issues.append(m)
+    ## Dedupe and sort.
+    collected_issues = list(dict.fromkeys(collected_issues))
+    collected_issues.sort()
 
 ## Pull issues from GH.
 def get_issues(repo: str, event_type: str, start_date: str):
@@ -164,13 +167,16 @@ if __name__ == "__main__":
     ## DEBUG:
     #collected_issues = ['GO:0030234', 'GO:0048478', 'GO:0031508']
 
+    ## All reports to single file.
+    final_report_filename = '-'.join(collected_names).replace(':','_')+ '.tsv'
+    outfile = args.output + '/' + final_report_filename
+    LOG.info('output to file: ' + outfile)
+
     ## Print out reports.
     for t in collected_issues:
         LOG.info(t)
 
         ## Final writeout to files of the same name as the term.
-        outfile = args.output + '/' + t.replace(':','_')+ '.tsv'
-        LOG.info('output to file: ' + outfile)
         with open(outfile, 'w+') as fhandle:
             ## Print out header line:
             fhandle.write("\t".join(rfields))
