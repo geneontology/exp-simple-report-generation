@@ -78,7 +78,7 @@ rfields = [
            'annotation_class_label',
            'evidence_type',
            'evidence_with',
-           'bioentity_isoform'
+           'bioentity_isoform',
            'panther_family',
            'date',
            'annotation_extension_class',
