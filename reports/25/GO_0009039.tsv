@@ -1,0 +1,15 @@
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoformpanther_family	date	annotation_extension_class	taxon
+MTBBASE	UniProtKB:A0A0H3LAR3	ureC	PMID:7559354		GO:0009039	urease activity	IDA			20170216		NCBITaxon:652616
+MTBBASE	UniProtKB:A0A0H3LA58	ureA	PMID:7559354		GO:0009039	urease activity	IDA			20170216		NCBITaxon:652616
+UniProt	UniProtKB:E0ZS48	E0ZS48	PMID:20631318		GO:0009039	urease activity	IDA			20140115		NCBITaxon:39946
+MTBBASE	UniProtKB:A0A0H3LDZ7	ureB	PMID:7559354		GO:0009039	urease activity	IDA			20170216		NCBITaxon:652616
+AspGD	UniProtKB:Q5BGU8	ANIA_00232	PMID:6753831	contributes_to	GO:0009039	urease activity	IMP			20091005		NCBITaxon:227321
+TAIR	AGI_LocusCode:AT1G21840	UREF	TAIR:Publication:501717862|PMID:16244137		GO:1905182	positive regulation of urease activity	IMP			20160509		NCBITaxon:3702
+TAIR	AGI_LocusCode:AT2G35035	URED	TAIR:Publication:501717862|PMID:16244137		GO:1905182	positive regulation of urease activity	IMP			20160509		NCBITaxon:3702
+TAIR	AGI_LocusCode:AT2G34470	UREG	TAIR:Publication:501717862|PMID:16244137		GO:1905182	positive regulation of urease activity	IMP			20160509		NCBITaxon:3702
+TAIR	AGI_LocusCode:AT1G67550	URE	TAIR:Publication:501717862|PMID:16244137		GO:0009039	urease activity	IDA			20051202		NCBITaxon:3702
+TAIR	AGI_LocusCode:AT1G67550	URE	TAIR:Publication:501756424|PMID:23940254		GO:0009039	urease activity	IMP			20131021		NCBITaxon:3702
+PomBase	PomBase:SPAC1952.11c	ure2	PMID:24177583		GO:0009039	urease activity	EXP			20160921		NCBITaxon:4896
+PomBase	PomBase:SPAC1952.11c	ure2	PMID:8742356		GO:0009039	urease activity	IDA			20140731		NCBITaxon:4896
+AspGD	UniProtKB:C8VTF2	ANIA_10079	PMID:6753831		GO:0009039	urease activity	IMP			20091005		NCBITaxon:227321
+AspGD	UniProtKB:C8VTF2	ANIA_10079	PMID:5680610		GO:0009039	urease activity	IMP			20100421		NCBITaxon:227321
