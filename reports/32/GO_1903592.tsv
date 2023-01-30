@@ -1,0 +1,3 @@
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoform	panther_family	date	annotation_extension_class	taxon
+AgBase	UniProtKB:P48096	prl	PMID:23420569		GO:1903592	positive regulation of lysozyme activity	IDA				20160308	UBERON:0007132|CL:0000234	NCBITaxon:8030
+AgBase	UniProtKB:E3TFF8	GPR18	PMID:23891864		GO:1903592	positive regulation of lysozyme activity	IDA				20150306		NCBITaxon:7998

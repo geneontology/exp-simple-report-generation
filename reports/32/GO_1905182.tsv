@@ -1,0 +1,4 @@
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoform	panther_family	date	annotation_extension_class	taxon
+TAIR	AGI_LocusCode:AT1G21840	UREF	TAIR:Publication:501717862|PMID:16244137		GO:1905182	positive regulation of urease activity	IMP		TAIR:locus:2036997		20160509		NCBITaxon:3702
+TAIR	AGI_LocusCode:AT2G35035	URED	TAIR:Publication:501717862|PMID:16244137		GO:1905182	positive regulation of urease activity	IMP		TAIR:locus:504956057		20160509		NCBITaxon:3702
+TAIR	AGI_LocusCode:AT2G34470	UREG	TAIR:Publication:501717862|PMID:16244137		GO:1905182	positive regulation of urease activity	IMP		TAIR:locus:2040894		20160509		NCBITaxon:3702
