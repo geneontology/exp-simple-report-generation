@@ -1,0 +1,20 @@
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoformpanther_family	date	annotation_extension_class	taxon
+FlyBase	FB:FBgn0031054	Ssu72	FB:FBrf0214135|PMID:21159777		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20120202		NCBITaxon:7227
+FlyBase	FB:FBgn0031054	Ssu72	FB:FBrf0242446|PMID:30971428		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20201210		NCBITaxon:7227
+TAIR	AGI_LocusCode:AT3G19600	CPL5	TAIR:Publication:501741613|PMID:21231936		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20110207		NCBITaxon:3702
+SGD	SGD:S000000941	RTR1	PMID:19394294		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20100316		NCBITaxon:559292
+SGD	SGD:S000000941	RTR1	PMID:19394294		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IMP			20100316		NCBITaxon:559292
+UniProt	UniProtKB:Q8IXW5	RPAP2	PMID:22137580		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IMP			20120127		NCBITaxon:9606
+UniProt	UniProtKB:Q9NQG5	RPRD1B	PMID:22231121		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IMP			20120127		NCBITaxon:9606
+UniProt	UniProtKB:Q96P16	RPRD1A	PMID:22231121		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IMP			20120127		NCBITaxon:9606
+UniProt	UniProtKB:Q9NP77	SSU72	PMID:20861839		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20121218		NCBITaxon:9606
+SGD	SGD:S000005166	SSU72	PMID:15125841		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20120621		NCBITaxon:559292
+SGD	SGD:S000005166	SSU72	PMID:15125841		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IMP			20120621		NCBITaxon:559292
+SGD	SGD:S000005166	SSU72	PMID:22235117		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20130311		NCBITaxon:559292
+SGD	SGD:S000005166	SSU72	PMID:22235117		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IMP			20130311		NCBITaxon:559292
+SGD	SGD:S000004890	FCP1	PMID:10445027		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20110602		NCBITaxon:559292
+SGD	SGD:S000004890	FCP1	PMID:10445027		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IMP			20110602		NCBITaxon:559292
+SGD	SGD:S000004890	FCP1	PMID:11904169		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20110602		NCBITaxon:559292
+SGD	SGD:S000004890	FCP1	PMID:16301539		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20140317		NCBITaxon:559292
+SGD	SGD:S000003418	TFG1	PMID:11003641		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IGI	SGD:S000004890		20110826		NCBITaxon:559292
+SGD	SGD:S000003418	TFG1	PMID:11904169		GO:0070940	dephosphorylation of RNA polymerase II C-terminal domain	IDA			20110826		NCBITaxon:559292
