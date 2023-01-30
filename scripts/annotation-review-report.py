@@ -92,6 +92,8 @@ rfields = [
 ## Append to global variable, including print information.
 def collect_issues(issues, number: str, event_type: str, printed_ids: set):
 
+    cis = []
+
     for issue in issues:
         if (issue['state'] == 'open') and (int(number) == issue['number']):
             has_label_p = False
@@ -103,10 +105,11 @@ def collect_issues(issues, number: str, event_type: str, printed_ids: set):
             if has_label_p and len(matches) > 0:
                 matches = re.findall("GO:[0-9]+", issue['body'])
                 for m in matches:
-                    collected_issues.append(m)
+                    cis.append(m)
     ## Dedupe and sort.
-    collected_issues = list(dict.fromkeys(collected_issues))
-    collected_issues.sort()
+    cis = list(dict.fromkeys(cis))
+    cis.sort()
+    return cis
 
 ## Pull issues from GH.
 def get_issues(repo: str, event_type: str, start_date: str):
@@ -161,23 +164,28 @@ if __name__ == "__main__":
     if "/" in repo_name:
         repo_name = repo_name.rsplit("/", maxsplit=1)[-1]
     ids = set()
-    collect_issues(new_issues, args.number, "New", ids)
-    #collect_issues(updated_issues, "Updated", ids)
+    collected_issues = collected_issues + collect_issues(new_issues, args.number, "New", ids)
 
     ## DEBUG:
     #collected_issues = ['GO:0030234', 'GO:0048478', 'GO:0031508']
 
+    ## Check that we got something.
+    if len(collected_issues) == 0:
+        die_screaming('no terms found in ')
+
     ## All reports to single file.
-    final_report_filename = '-'.join(collected_names).replace(':','_')+ '.tsv'
-    outfile = args.output + '/' + final_report_filename
+    outfile = "-".join(collected_issues)
+    outfile = outfile.replace(':','_') + '.tsv'
+    outfile = args.output + '/' + outfile
     LOG.info('output to file: ' + outfile)
 
-    ## Print out reports.
-    for t in collected_issues:
-        LOG.info(t)
+    ## Final writeout to files of the same name as the term.
+    with open(outfile, 'w+') as fhandle:
 
-        ## Final writeout to files of the same name as the term.
-        with open(outfile, 'w+') as fhandle:
+        ## Print out reports.
+        for t in collected_issues:
+            LOG.info(t)
+
             ## Print out header line:
             fhandle.write("\t".join(rfields))
             fhandle.write("\n")
