@@ -128,11 +128,33 @@ def get_issues(repo: str, event_type: str, start_date: str):
 def get_term_annotation_data(fq: str, term: str):
     url = "http://golr-aux.geneontology.io/solr/select?defType=edismax&qt=standard&indent=on&wt=csv&rows=100000&start=0&fl={}&facet=true&facet.mincount=1&facet.sort=count&json.nl=arrarr&facet.limit=25&hl=true&hl.simple.pre=%3Cem%20class=%22hilite%22%3E&hl.snippets=1000&csv.encapsulator=&csv.separator=%09&csv.header=false&csv.mv.separator=%7C&fq={}:%22{}%22&fq=evidence_subset_closure:%22ECO:0000006%22&fq=document_category:%22annotation%22&q=*:*".format(','.join(rfields), fq, term)
     resp = requests.get(url)
-    if resp.status_code == 200:
-        resp_tsv = resp.text
-        return resp_tsv
-    else:
+    if resp.status_code != 200:
         raise Exception("HTTP error status code: {} for url: {}".format(resp.status_code, url))
+    else:
+        resp_tsv = resp.text.rstrip()
+
+        ## Split and clean references column--PMID first if there.
+        resp_list = resp_tsv.split("\n")
+        cleaned_list = []
+        for r in resp_list:
+            cols = r.split("\t")
+            ref = cols[3]
+            split_ref = ref.split('|')
+            if len(split_ref) == 2:
+                if 'PMID:' in split_ref[1]:
+                    cols[3] = split_ref[1] + '|' + split_ref[0]
+            cleaned_list.append("\t".join(cols))
+        resp_list = cleaned_list
+
+        ## Alphabetical sort by col4 (reference), then col1 (assigned_by).
+        def sorter(line: str):
+            ll = line.split("\t")
+            ind = ll[3]
+            return ind
+        resp_list = sorted(resp_list, key=sorter)
+        resp_list = sorted(resp_list, key=lambda line: line.split("\t")[0])
+
+        return "\n".join(resp_list)
 
 ###
 ### Main.
@@ -190,3 +212,4 @@ if __name__ == "__main__":
             fhandle.write("\t".join(rfields))
             fhandle.write("\n")
             fhandle.write(get_term_annotation_data(args.field, t))
+            fhandle.write("\n")
