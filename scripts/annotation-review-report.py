@@ -204,12 +204,14 @@ if __name__ == "__main__":
     ## Final writeout to files of the same name as the term.
     with open(outfile, 'w+') as fhandle:
 
+        ## Single header.
+        fhandle.write("\t".join(rfields))
+        fhandle.write("\n")
+
         ## Print out reports.
         for t in collected_issues:
             LOG.info(t)
 
             ## Print out header line:
-            fhandle.write("\t".join(rfields))
-            fhandle.write("\n")
             fhandle.write(get_term_annotation_data(args.field, t))
             fhandle.write("\n")
