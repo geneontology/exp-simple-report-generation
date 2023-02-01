@@ -1,0 +1,20 @@
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoform	panther_family	date	annotation_extension_class	taxon
+MGI	RGD:61296	Aoc1	PMID:8375402|RGD:724757		GO:0015898	amiloride transport	IDA			PANTHER:PTHR10638	20191112		NCBITaxon:10116
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoform	panther_family	date	annotation_extension_class	taxon
+RGD	RGD:2332	Cftr	PMID:31942562|RGD:126928119		GO:0036253	response to amiloride	IMP			PANTHER:PTHR24223	20210526		NCBITaxon:10116
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoform	panther_family	date	annotation_extension_class	taxon
+ComplexPortal	MGI:MGI:101782	Scnn1a	PMID:15096495|MGI:MGI:3046390		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:10090
+ComplexPortal	MGI:MGI:104696	Scnn1b	PMID:15096495|MGI:MGI:3046390		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:10090
+ComplexPortal	MGI:MGI:104695	Scnn1g	PMID:15096495|MGI:MGI:3046390		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:10090
+ComplexPortal	UniProtKB:P37088	SCNN1A	PMID:16423824		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:9606
+ComplexPortal	ComplexPortal:CPX-313	scnn1dbg_human	PMID:16423824		GO:0036254	cellular response to amiloride	IDA				20190123		NCBITaxon:9606
+ComplexPortal	ComplexPortal:CPX-312	scnn1dabg_human	PMID:16423824		GO:0036254	cellular response to amiloride	IDA				20190123		NCBITaxon:9606
+ComplexPortal	ComplexPortal:CPX-2188	scnn1abg_human	PMID:16423824		GO:0036254	cellular response to amiloride	IDA				20151202		NCBITaxon:9606
+ComplexPortal	UniProtKB:P51172	SCNN1D	PMID:16423824		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20190123		NCBITaxon:9606
+ComplexPortal	UniProtKB:P51170	SCNN1G	PMID:16423824		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:9606
+ComplexPortal	UniProtKB:P51168	SCNN1B	PMID:16423824		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:9606
+ComplexPortal	RGD:3640	Scnn1b	PMID:9430626|RGD:150521649		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:10116
+ComplexPortal	RGD:3641	Scnn1g	PMID:9430626|RGD:150521649		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:10116
+ComplexPortal	RGD:3639	Scnn1a	PMID:9430626|RGD:150521649		GO:0036254	cellular response to amiloride	IDA			PANTHER:PTHR11690	20151202		NCBITaxon:10116
+assigned_by	bioentity	bioentity_label	reference	qualifier	annotation_class	annotation_class_label	evidence_type	evidence_with	bioentity_isoform	panther_family	date	annotation_extension_class	taxon
+UniProt	MGI:MGI:1098233	Impact	PMID:24333428|MGI:MGI:5576818		GO:0072755	cellular response to benomyl	IDA			PANTHER:PTHR16301	20150917		NCBITaxon:10090
